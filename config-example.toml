@@ -1,0 +1,29 @@
+#
+# config file - rename to $HOME/.cid_oracle/config.toml
+#
+
+# (values here are defaults, overrideable by cli args)
+
+#
+# 'endpoint' - where to find the lotus JSON RPC server.
+#
+# Defaults to localhost (http://127.0.0.1:1234/rpc/v0).
+# Uncomment to set a different default.
+#
+#endpoint = "http://127.0.0.1:1234/rpc/v0"
+
+#
+# 'min' - tipset height at which to start scan
+#
+# Defaults to 0.
+#
+#min = 0
+
+#
+# 'max' - tipset height at which to stop scan
+#
+# Defaults to (2^64 - 1). Value cannot be too
+# large since we can't run past end of chain.
+#
+#max = 18446744073709551615
+

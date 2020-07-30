@@ -1,0 +1,21 @@
+[package]
+name = "cid_oracle"
+version = "0.1.0"
+authors = ["Mike Goelzer <mike@protocol.ai>"]
+edition = "2018"
+
+[dependencies]
+lotus_client_rs = { path = "../lotus_client_rs" }
+
+jsonrpsee = { git = "https://github.com/mgoelzer/jsonrpsee", branch = "auth-token" }
+rand = "0.7.3"
+serde = { version = "1.0.114", features = ["derive"] }
+serde_json = { version = "1.0.56" , features = ["preserve_order"] }
+log = "0.4.11"
+env_logger = "0.7.1"
+serde_derive = "1.0.104"
+structopt = "0.3.11"
+structopt-toml = "0.4.5"
+toml = "0.5.6"
+dirs = "3.0.1"
+sqlite3 = "0.24.0"
