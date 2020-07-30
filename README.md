@@ -1,8 +1,12 @@
 # `cid_oracle`
 
-`cid_oracle` scans the Filecoin blockchain for DealProposal messages, and extracts each `PieceCID` <-> `PayloadCID` mapping.  It saves the tuple `{Message CID, PieceCID, Payload CID}` to a SQL database.
+`cid_oracle` scans the Filecoin blockchain for DealProposal messages, and extracts each `PieceCID <=> PayloadCID` mapping.  It saves the tuple `{Message CID, PieceCID, Payload CID}` to a SQL database.  Next step:  add a web front end and make these mappings available over an HTTP API to anyone.
 
-Next step:  add a web front end and make these mappings available over an HTTP API to anyone.
+## Why?
+
+Historically, tools that stored and retrieved user data to the Filecoin network exposed primarily or only the hash of the raw data itself, called "Payload CID," "File CID," "Data CID," and other names.  This is roughly equivalent to the sha-256 of your data, but formatted according to [IPFS CID specification](https://docs.ipfs.io/concepts/content-addressing/).  However, Filecoin stores all data as [IPLD DAGs](https://github.com/ipld/specs), and the root hash of this structure, called `Piece CID` or `commP`, was the only on-chain record of what miner is storing that data.
+
+To enable retrieval miners to field requests for a particular Payload CID and be able to discover what storage miner has that piece of data, Filecoin storage deals typically include the Piece CID, Payload CID and miner BLS wallet address in a proposal message signed by the original buyer of the storage.  `cid_oracle` provides random access to these `{Piece CID, Payload CID, MsgCid}` tuples. 
 
 ## Compiling and Running
 
