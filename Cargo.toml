@@ -5,8 +5,7 @@ authors = ["Mike Goelzer <mike@protocol.ai>"]
 edition = "2018"
 
 [dependencies]
-lotus_client_rs = { git = "https://github.com/mgoelzer/lotus_client_rs", branch = "master" }
-
+lotus_client_rs = { git = "https://github.com/mgoelzer/lotus_client_rs" }
 jsonrpsee = { git = "https://github.com/mgoelzer/jsonrpsee", branch = "auth-token" }
 rand = "0.7.3"
 serde = { version = "1.0.114", features = ["derive"] }
